@@ -42,12 +42,12 @@ ran_once = 0;
 
 while(1),
 
-tic
+%tic
 preview(vid);
 data = getsnapshot(vid);
 data = imresize(data, scale);
 
-newdata = YUY2toRGB(data);
+YUY2toRGB(data);
 
 
     for X=1:vidHeight,        
@@ -150,12 +150,11 @@ newdata = YUY2toRGB(data);
     %percentdone = (i/nFrames)*100;
     %percentdone
 %end
-toc
-end
+%toc
 end
 
 
-function [newdata] = YUY2toRGB(data)
+function [newdata] YUY2toRGB(data)
 
 %Begin YuY2 to RGB conversion 
 %(Comment everything below out if using RGB camera)
@@ -181,6 +180,15 @@ return
 
 end
 
+function DOMath
+ans = addmath(8,5);
+ans
+end
+
+function [x] = addmath(x, y)
+x = x + y;
+return
+end
 
 
 
