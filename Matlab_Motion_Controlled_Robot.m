@@ -14,14 +14,17 @@
 %Move faster based on distance?
 %Serial/BT/Wifi/RPi data to Arduino live
 
-
 function Matlab_Motion_Controlled_Robot
 
+vid = videoinput('winvideo', 1, 'YUY2_320x240');
+frame = getsnapshot(vid);
+frame = YUY2toRGB(frame);
+imagesc(frame);
 
-% Live feed to image goes HERE
-% enter imaqhwinfo to get device ID (winvideo below)
-%then dev_info = imaqhwinfo('adaptername(winvideo below)', 'adapternumbernormally 1')
-vid = videoinput('winvideo',1,'YUY2_320x240'); %The highest resolution of my camera
+end
+function oldcode_donotrun
+
+vid = videoinput('winvideo',1,'YUY2_320x240');
 vidWidth = 320;
 vidHeight =240;
 scale = 1; %scale in half - still get a resonable picture
@@ -157,7 +160,6 @@ end
 
 
 function [newdata] = YUY2toRGB(data)
-
 %Begin YuY2 to RGB conversion 
 %(Comment everything below out if using RGB camera)
 P = single(data(:,:,1));
