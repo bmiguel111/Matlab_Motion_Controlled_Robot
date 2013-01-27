@@ -12,6 +12,7 @@
 %If right hand is raised, turn right
 %If left hand is raised, turn left
 %Move faster based on distance?
+%Serial/BT/Wifi/RPi data to Arduino live
 
 
 function Matlab_Motion_Controlled_Robot
@@ -42,7 +43,7 @@ ran_once = 0;
 
 while(1),
 
-tic
+
 preview(vid);
 data = getsnapshot(vid);
 data = imresize(data, scale);
@@ -150,7 +151,7 @@ newdata = YUY2toRGB(data);
     %percentdone = (i/nFrames)*100;
     %percentdone
 %end
-toc
+
 end
 end
 
